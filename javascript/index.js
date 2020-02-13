@@ -1,24 +1,23 @@
-<<<<<<< HEAD
-function firstFunction() {
-  console.log('HELLO!');
-=======
 let currentScore = 0;
-let answer = "empty";
+let answer = 'empty';
 
-const quote = document.querySelector(".quoteGenP");
-const answer1 = document.querySelector("#author1");
-const answer2 = document.querySelector("#author2");
-const answer3 = document.querySelector("#author3");
-const answer4 = document.querySelector("#author4");
-const score = document.querySelector(".scoreboardField");
-const losingQuote = document.querySelector(".wrongFact");
+const quote = document.querySelector('.quoteGenP');
+const answer1 = document.querySelector('#author1');
+const answer2 = document.querySelector('#author2');
+const answer3 = document.querySelector('#author3');
+const answer4 = document.querySelector('#author4');
+const score = document.querySelector('.scoreboardField');
+const losingQuote = document.querySelector('.wrongFact');
+
+//materialize init
+M.AutoInit();
 
 // button functions
 
-answer1.addEventListener("click", e => {
+answer1.addEventListener('click', e => {
   e.preventDefault();
   if (answer1.innerText.toLowerCase() === answer.toLowerCase()) {
-    console.log("You are correct!");
+    console.log('You are correct!');
     currentScore += 1;
     score.innerHTML = currentScore;
     reset();
@@ -27,10 +26,10 @@ answer1.addEventListener("click", e => {
   }
 });
 
-answer2.addEventListener("click", e => {
+answer2.addEventListener('click', e => {
   e.preventDefault();
   if (answer2.innerText.toLowerCase() === answer.toLowerCase()) {
-    console.log("You are correct!");
+    console.log('You are correct!');
     currentScore += 1;
     score.innerHTML = currentScore;
     reset();
@@ -39,10 +38,10 @@ answer2.addEventListener("click", e => {
   }
 });
 
-answer3.addEventListener("click", e => {
+answer3.addEventListener('click', e => {
   e.preventDefault();
   if (answer3.innerText.toLowerCase() === answer.toLowerCase()) {
-    console.log("You are correct!");
+    console.log('You are correct!');
     currentScore += 1;
     score.innerHTML = currentScore;
     reset();
@@ -51,10 +50,10 @@ answer3.addEventListener("click", e => {
   }
 });
 
-answer4.addEventListener("click", e => {
+answer4.addEventListener('click', e => {
   e.preventDefault();
   if (answer4.innerText.toLowerCase() === answer.toLowerCase()) {
-    console.log("You are correct!");
+    console.log('You are correct!');
     currentScore += 1;
     score.innerHTML = currentScore;
     reset();
@@ -70,7 +69,6 @@ function getQuoteAuthor() {
     quote.innerHTML = response.quoteText;
     answer = response.quoteAuthor;
   });
->>>>>>> 1730aa4a798d54efbe8191d9a658afeda6b55494
 }
 
 async function generateAuthorButtons() {
