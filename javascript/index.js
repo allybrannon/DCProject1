@@ -1,25 +1,30 @@
 let currentScore = 0;
-let answer = "empty";
+let answer = 'empty';
 
-const quote = document.querySelector(".quoteGenP");
-const answer1 = document.querySelector("#author1");
-const answer2 = document.querySelector("#author2");
-const answer3 = document.querySelector("#author3");
-const answer4 = document.querySelector("#author4");
-const score = document.querySelector(".scoreboardField");
-const losingQuote = document.querySelector(".wrongFact");
-const authorQuotes = document.querySelector(".authorQuotes");
+const quote = document.querySelector('.quoteGenP');
+const answer1 = document.querySelector('#author1');
+const answer2 = document.querySelector('#author2');
+const answer3 = document.querySelector('#author3');
+const answer4 = document.querySelector('#author4');
+const score = document.querySelector('.scoreboardField');
+const losingQuote = document.querySelector('.wrongFact');
+const authorQuotes = document.querySelector('.authorQuotes');
 
 //materialize init
 M.AutoInit();
 
-// button functions
+//carousel
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.carousel');
+  var instances = M.Carousel.init(elems, options);
+});
 
-answer1.addEventListener("click", e => {
+// button functions
+answer1.addEventListener('click', e => {
   e.preventDefault();
   cleanUp();
   if (answer1.innerText.toLowerCase() === answer.toLowerCase()) {
-    console.log("You are correct!");
+    console.log('You are correct!');
     currentScore += 1;
     score.innerHTML = currentScore;
     reset();
@@ -28,11 +33,11 @@ answer1.addEventListener("click", e => {
   }
 });
 
-answer2.addEventListener("click", e => {
+answer2.addEventListener('click', e => {
   e.preventDefault();
   cleanUp();
   if (answer2.innerText.toLowerCase() === answer.toLowerCase()) {
-    console.log("You are correct!");
+    console.log('You are correct!');
     currentScore += 1;
     score.innerHTML = currentScore;
     reset();
@@ -41,11 +46,11 @@ answer2.addEventListener("click", e => {
   }
 });
 
-answer3.addEventListener("click", e => {
+answer3.addEventListener('click', e => {
   e.preventDefault();
   cleanUp();
   if (answer3.innerText.toLowerCase() === answer.toLowerCase()) {
-    console.log("You are correct!");
+    console.log('You are correct!');
     currentScore += 1;
     score.innerHTML = currentScore;
     reset();
@@ -54,11 +59,11 @@ answer3.addEventListener("click", e => {
   }
 });
 
-answer4.addEventListener("click", e => {
+answer4.addEventListener('click', e => {
   e.preventDefault();
   cleanUp();
   if (answer4.innerText.toLowerCase() === answer.toLowerCase()) {
-    console.log("You are correct!");
+    console.log('You are correct!');
     currentScore += 1;
     score.innerHTML = currentScore;
     reset();
@@ -119,7 +124,7 @@ async function serveQuotes() {
     quotes = response.results;
     for (let i = 0; i <= 10; i++) {
       authorQuotes.append(quotes[i].quoteText);
-      let newParagraph = document.createElement("p");
+      let newParagraph = document.createElement('p');
       authorQuotes.append(newParagraph);
     }
 
@@ -129,12 +134,12 @@ async function serveQuotes() {
 
 function askForQuotes() {
   authorQuotes.innerHTML = `Woud you like to see more quotes from ${answer}?`;
-  const question = document.createElement("button");
-  question.innerHTML = "Yes";
+  const question = document.createElement('button');
+  question.innerHTML = 'Yes';
   authorQuotes.append(question);
   //creates the listener. WIP
-  question.addEventListener("click", e => {
-    console.log("WORKED!");
+  question.addEventListener('click', e => {
+    console.log('WORKED!');
     serveQuotes();
     cleanUp();
   });
@@ -147,7 +152,7 @@ async function wrongAnswer() {
 }
 
 function cleanUp() {
-  authorQuotes.innerHTML = "";
+  authorQuotes.innerHTML = '';
   //   authorQuotes.remove(question);
 }
 
