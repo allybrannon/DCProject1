@@ -62,3 +62,11 @@ font-size: 16px;
   justify-content: center;
   color: white;
 }
+.konamiCode {
+  opacity: 0;
+}
+
+h4 {
+  display: flex;
+  justify-content: center;
+}
