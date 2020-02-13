@@ -1,7 +1,67 @@
+body{
+  font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.nav-wrapper {
+  background-color: #455a64;
+}
+
 .brand-logo {
   margin-left: 10px;
 }
 
+.card-panel {
+    border-radius: 25px;
+    font-size: large;
+}
+
+#author1, #author2, #author3, #author4 {
+  box-shadow: 2px 4px 4px black;
+}
+
+.quoteGenP {
+  display: flex;
+  font-size: 24px;
+}
+.scoreboard {
+  display: flex;
+  font-size: 20px;
+  
+}
+
+.scoreboardField {
+  display: flex;
+  font-size: 20px;
+}
+.endQuoteBox{
+font-size: 16px;
+}
+
+.quotesBelow {
+  display: flex;
+  font-size: 20px;
+}
+
+.authorQuotes {
+  display: flex;
+  font-size: 20px;
+}
+
+.footer{
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 60px;
+  background-color: #455a64;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
 .konamiCode {
   opacity: 0;
 }
