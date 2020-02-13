@@ -1,7 +1,8 @@
 let currentScore = 0;
 let answer = 'empty';
 
-<<<<<<< HEAD
+// test
+const spinner = document.querySelector('.loader');
 const quote = document.querySelector('.quoteGenP');
 const answer1 = document.querySelector('#author1');
 const answer2 = document.querySelector('#author2');
@@ -10,18 +11,6 @@ const answer4 = document.querySelector('#author4');
 const score = document.querySelector('.scoreboardField');
 const losingQuote = document.querySelector('.wrongFact');
 const authorQuotes = document.querySelector('.authorQuotes');
-=======
-// test
-const spinner = document.querySelector(".loader");
-const quote = document.querySelector(".quoteGenP");
-const answer1 = document.querySelector("#author1");
-const answer2 = document.querySelector("#author2");
-const answer3 = document.querySelector("#author3");
-const answer4 = document.querySelector("#author4");
-const score = document.querySelector(".scoreboardField");
-const losingQuote = document.querySelector(".wrongFact");
-const authorQuotes = document.querySelector(".authorQuotes");
->>>>>>> b5c7f18b1bbefe4f85fb14702876c47fde91b619
 
 //materialize init
 M.AutoInit();
@@ -89,7 +78,7 @@ answer4.addEventListener('click', e => {
 async function getQuoteAuthor() {
   const quoteAPI = `https://quote-garden.herokuapp.com/quotes/random`;
   await get(quoteAPI).then(response => {
-    console.log("testing for blank ", response.quoteAuthor);
+    console.log('testing for blank ', response.quoteAuthor);
     if (response.quoteAuthor.length === 0) {
       getQuoteAuthor();
     } else {
@@ -97,7 +86,7 @@ async function getQuoteAuthor() {
       answer = response.quoteAuthor;
     }
   });
-  console.log("assigning the func", answer);
+  console.log('assigning the func', answer);
 }
 
 async function generateAuthorButtons() {
@@ -143,26 +132,20 @@ async function serveQuotes() {
   get(authorQuotesApi).then(response => {
     console.log(response);
     quotes = response.results;
-<<<<<<< HEAD
-    for (let i = 0; i <= 10; i++) {
-      authorQuotes.append(quotes[i].quoteText);
-      let newParagraph = document.createElement('p');
-      authorQuotes.append(newParagraph);
-=======
 
     if (quotes.length < 10) {
       for (let i = 0; i <= quotes.length; i++) {
         if (i >= 1) {
           if (quotes[i].quoteText === quotes[i - 1].quoteText) {
-            console.log("This has repeated in less than 10.");
+            console.log('This has repeated in less than 10.');
           } else {
             authorQuotes.append(quotes[i].quoteText);
-            let newParagraph = document.createElement("p");
+            let newParagraph = document.createElement('p');
             authorQuotes.append(newParagraph);
           }
         } else {
           authorQuotes.append(quotes[i].quoteText);
-          let newParagraph = document.createElement("p");
+          let newParagraph = document.createElement('p');
           authorQuotes.append(newParagraph);
         }
       }
@@ -170,19 +153,18 @@ async function serveQuotes() {
       for (let i = 0; i <= 10; i++) {
         if (i >= 1) {
           if (quotes[i].quoteText === quotes[i - 1].quoteText) {
-            console.log("This has repeated in arrays greater than 10.");
+            console.log('This has repeated in arrays greater than 10.');
           } else {
             authorQuotes.append(quotes[i].quoteText);
-            let newParagraph = document.createElement("p");
+            let newParagraph = document.createElement('p');
             authorQuotes.append(newParagraph);
           }
         } else {
           authorQuotes.append(quotes[i].quoteText);
-          let newParagraph = document.createElement("p");
+          let newParagraph = document.createElement('p');
           authorQuotes.append(newParagraph);
         }
       }
->>>>>>> b5c7f18b1bbefe4f85fb14702876c47fde91b619
     }
 
     //this needs to append onto the class authorQuotes, which appears at the bottom of the page.
@@ -194,13 +176,7 @@ function askForQuotes() {
   const question = document.createElement('button');
   question.innerHTML = 'Yes';
   authorQuotes.append(question);
-<<<<<<< HEAD
-  //creates the listener. WIP
   question.addEventListener('click', e => {
-    console.log('WORKED!');
-=======
-  question.addEventListener("click", e => {
->>>>>>> b5c7f18b1bbefe4f85fb14702876c47fde91b619
     serveQuotes();
     cleanUp();
   });
@@ -215,12 +191,7 @@ async function wrongAnswer() {
 }
 
 function cleanUp() {
-<<<<<<< HEAD
   authorQuotes.innerHTML = '';
-  //   authorQuotes.remove(question);
-=======
-  authorQuotes.innerHTML = "";
->>>>>>> b5c7f18b1bbefe4f85fb14702876c47fde91b619
 }
 
 function getWrongAnswer() {
@@ -228,14 +199,14 @@ function getWrongAnswer() {
 }
 
 async function startUP() {
-  answer1.innerHTML = "Loading...";
-  answer2.innerHTML = "Loading...";
-  answer3.innerHTML = "Loading...";
-  answer4.innerHTML = "Loading...";
-  quote.innerHTML = "Your new quote is loading! Give us a second to fetch it!";
+  answer1.innerHTML = 'Loading...';
+  answer2.innerHTML = 'Loading...';
+  answer3.innerHTML = 'Loading...';
+  answer4.innerHTML = 'Loading...';
+  quote.innerHTML = 'Your new quote is loading! Give us a second to fetch it!';
   await getQuoteAuthor();
   await generateAuthorButtons();
-  await console.log("answer", answer);
+  await console.log('answer', answer);
 }
 
 function reset() {
