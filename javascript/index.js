@@ -1,4 +1,4 @@
 function firstFunction() {
-  console.log("HELLO!");
+  console.log('HELLO!');
 }
 firstFunction();
