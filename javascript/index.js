@@ -10,6 +10,9 @@ const score = document.querySelector(".scoreboardField");
 const losingQuote = document.querySelector(".wrongFact");
 const authorQuotes = document.querySelector(".authorQuotes");
 
+//materialize init
+M.AutoInit();
+
 // button functions
 
 answer1.addEventListener("click", e => {
