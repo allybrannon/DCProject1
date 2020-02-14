@@ -12,6 +12,8 @@ body {
 }
 
 .answers a {
+  display: flex;
+  justify-content: center;
   margin-left: 25%;
   margin-top: 20px;
   width: 50%;
@@ -39,12 +41,12 @@ body {
 
 .scoreboard {
   display: flex;
-  font-size: 20px;
+  font-size: 24px;
 }
 
 .scoreboardField {
   display: flex;
-  font-size: 20px;
+  font-size: 24px;
 }
 .endQuoteBox {
   font-size: 16px;
@@ -52,20 +54,9 @@ body {
 
 .quotesBelow {
   display: flex;
-  font-size: 20px;
+  font-size: 24px;
 }
 
-.footer {
-  display: flex;
-  position: absolute;
-  bottom: 0;
-  width: 100vw;
-  height: 60px;
-  background-color: #455a64;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
 .konamiCode {
   opacity: 0;
 }
@@ -96,11 +87,17 @@ h4 {
   font-family: fantasy;
 }
 
+.wrongFact {
+  display: flex;
+  font-size: 18px;
+  font-style: oblique;
+  text-decoration: underline; 
+}
 .authorQuotes {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  background-color: grey;
+  background-color: #26a69a;
   border-radius: 6px;
   font-size: 20px;
 }
@@ -126,4 +123,10 @@ a:hover {
 .answers a:hover {
   background-color: springgreen;
   color: black;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+  html {
+    font-size: 8px;
+  }
 }
