@@ -85,11 +85,32 @@ h4 {
   text-align: center;
 }
 
+.subtitle {
+  display: flex;
+  justify-content: center;
+  font-family: fantasy;
+  text-align: center;
+}
+
+.cardFlex {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.callToAction {
+  font-size: 17px;
+}
+
+.card-content {
+  font-size: 20px;
+}
+
 .wrongFact {
   display: flex;
   font-size: 18px;
   font-style: oblique;
-  text-decoration: underline; 
+  text-decoration: underline;
 }
 .authorQuotes {
   display: flex;
@@ -117,7 +138,7 @@ h4 {
   box-shadow: 4px 4px black;
   color: white;
   position: relative;
-  padding: 10px
+  padding: 10px;
 }
 
 .authorQuotes button:hover {

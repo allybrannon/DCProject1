@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quotable.</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway|Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="/css/index.css" />
+  </head>
+  <body>
+    <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+      <li><a href="https://github.com/JoshuaBevers">Josh</a></li>
+      <li><a href="https://github.com/allybrannon">Ally</a></li>
+      <li><a href="https://github.com/PFurtak">Patrick</a></li>
+    </ul>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">"Quotable"</a>
+        <ul class="right hide-on-med-and-down">
+          <li>
+            <a href="https://pprathameshmore.github.io/QuoteGarden/"
+              >Quote Garden</a
+            >
+          </li>
+          <li><a href="http://numbersapi.com/#42">Numbers API</a></li>
+          <!-- Dropdown Trigger -->
+          <li>
+            <a class="dropdown-trigger" href="#!" data-target="dropdown1"
+              >GitHub <i class="material-icons right">arrow_drop_down</i></a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="header">
+        <div class="title">
+          <h1>Quotable</h1>
+        </div>
+      </div>
+      <div class="subtitle">
+        <h4>Where curiosity meets quotations.</h4>
+      </div>
+      <!-- card -->
+      <div class="cardFlex">
+        <div class="row">
+          <div class="col s12 m7 offset-m3">
+            <div class="card">
+              <div class="card-image">
+                <img src="/images/photo-1481627834876-b7833e8f5570.jpeg" />
+                <span class="card-title">Quotable</span>
+              </div>
+              <div class="card-content">
+                <p>
+                  Match the author to the quote and try to beat your personal
+                  high score. You can also view additional quotes from the
+                  author, or you can view related links from Wikipedia.
+                </p>
+              </div>
+              <div class="card-action">
+                <a
+                  href="/index.html"
+                  class="waves-effect waves-light btn teal-lighten-1 callToAction"
+                  >Let's Play!</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- card -->
+    </div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script type="text/javascript" src="javascript/buttonListeners.js"></script>
+  <script type="text/javascript" src="javascript/get.js"></script>
+  <script type="text/javascript" src="javascript/index.js"></script>
+  <script src="/javascript/konami.js"></script>
+</html>
