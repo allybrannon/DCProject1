@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
 answer1.addEventListener("click", e => {
   e.preventDefault();
   cleanUp();
+  emptyQuoteBox();
   if (answer1.innerText.toLowerCase() === answer.toLowerCase()) {
     console.log("You are correct!");
     currentScore += 1;
@@ -39,6 +40,7 @@ answer1.addEventListener("click", e => {
 answer2.addEventListener("click", e => {
   e.preventDefault();
   cleanUp();
+  emptyQuoteBox();
   if (answer2.innerText.toLowerCase() === answer.toLowerCase()) {
     console.log("You are correct!");
     currentScore += 1;
@@ -52,6 +54,7 @@ answer2.addEventListener("click", e => {
 answer3.addEventListener("click", e => {
   e.preventDefault();
   cleanUp();
+  emptyQuoteBox();
   if (answer3.innerText.toLowerCase() === answer.toLowerCase()) {
     console.log("You are correct!");
     currentScore += 1;
@@ -65,6 +68,7 @@ answer3.addEventListener("click", e => {
 answer4.addEventListener("click", e => {
   e.preventDefault();
   cleanUp();
+  emptyQuoteBox();
   if (answer4.innerText.toLowerCase() === answer.toLowerCase()) {
     console.log("You are correct!");
     currentScore += 1;
@@ -175,7 +179,6 @@ function askForQuotes() {
   const spacing = document.createElement("p");
   const question = document.createElement("button");
   question.innerHTML = "Yes";
-  authorQuotes.append(spacing);
   authorQuotes.append(question);
 
   question.addEventListener("click", e => {
@@ -201,6 +204,10 @@ function cleanUp() {
 
 function getWrongAnswer() {
   wrongAnswer();
+}
+
+function emptyQuoteBox() {
+  losingQuote.innerHTML = "";
 }
 
 async function startUP() {
