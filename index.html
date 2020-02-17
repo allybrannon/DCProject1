@@ -27,7 +27,7 @@
     </ul>
     <nav>
       <div class="nav-wrapper">
-        <a href="#!" class="brand-logo">"Quotable"</a>
+        <a href="/landing.html" class="brand-logo">"Quotable"</a>
         <ul class="right hide-on-med-and-down">
           <li>
             <a href="https://pprathameshmore.github.io/QuoteGarden/"
@@ -40,6 +40,11 @@
             <a class="dropdown-trigger" href="#!" data-target="dropdown1"
               >GitHub <i class="material-icons right">arrow_drop_down</i></a
             >
+          </li>
+          <li class="moon">
+            <button class="moonBtn" onclick="darkMode()">
+              <img src="/images/icons8-moon-symbol-30.png" alt="" srcset="" />
+            </button>
           </li>
         </ul>
       </div>
@@ -85,7 +90,7 @@
         <p class="authorQuotes"></p>
       </div>
       <!--Konami-->
-      <div class="konamiCode style">
+      <div class="konamiCode">
         <h4>Things Sean likes....</h4>
         <div class="carousel">
           <a class="carousel-item" href="#one!"
@@ -117,6 +122,7 @@
         <h4>...in a format he hates!</h4>
       </div>
     </div>
+    <div class="card" style="visibility: hidden;"></div>
     <!--Konami-->
     <div class="loader"></div>
   </body>
@@ -125,4 +131,5 @@
   <script type="text/javascript" src="javascript/get.js"></script>
   <script type="text/javascript" src="javascript/index.js"></script>
   <script src="/javascript/konami.js"></script>
+  <script src="/javascript/darkMode.js"></script>
 </html>

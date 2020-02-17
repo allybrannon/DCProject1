@@ -1,6 +1,6 @@
 body {
-  font-family: "Raleway", sans-serif;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto', sans-serif;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -9,6 +9,7 @@ body {
 .answers {
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
 }
 
 .answers a {
@@ -83,13 +84,40 @@ h4 {
   text-decoration-line: underline;
   font-family: fantasy;
   text-align: center;
+  margin-top: 35px;
+}
+
+.landingTitle {
+  margin-top: 25px;
+}
+
+.subtitle {
+  display: flex;
+  justify-content: center;
+  font-family: fantasy;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.cardFlex {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.callToAction {
+  font-size: 17px;
+}
+
+.card-content {
+  font-size: 20px;
 }
 
 .wrongFact {
   display: flex;
   font-size: 18px;
   font-style: oblique;
-  text-decoration: underline; 
+  text-decoration: underline;
 }
 .authorQuotes {
   display: flex;
@@ -117,7 +145,7 @@ h4 {
   box-shadow: 4px 4px black;
   color: white;
   position: relative;
-  padding: 10px
+  padding: 10px;
 }
 
 .authorQuotes button:hover {
@@ -128,6 +156,19 @@ h4 {
 .answers a:hover {
   background-color: springgreen;
   color: black;
+}
+
+.darkMode {
+  background-color: #3d6773;
+  color: #eeeeee;
+}
+.moon {
+  padding-top: 8px;
+  filter: invert();
+}
+.moonBtn {
+  background-color: transparent;
+  border: none;
 }
 
 @media only screen and (min-width: 320px) and (max-width: 768px) {
