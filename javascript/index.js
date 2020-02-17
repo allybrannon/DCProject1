@@ -33,7 +33,7 @@ answer1.addEventListener("click", e => {
     score.innerHTML = currentScore;
     reset();
   } else {
-    getWrongAnswer();
+    wrongAnswer();
   }
 });
 
@@ -47,7 +47,7 @@ answer2.addEventListener("click", e => {
     score.innerHTML = currentScore;
     reset();
   } else {
-    getWrongAnswer();
+    wrongAnswer();
   }
 });
 
@@ -61,7 +61,7 @@ answer3.addEventListener("click", e => {
     score.innerHTML = currentScore;
     reset();
   } else {
-    getWrongAnswer();
+    wrongAnswer();
   }
 });
 
@@ -75,7 +75,7 @@ answer4.addEventListener("click", e => {
     score.innerHTML = currentScore;
     reset();
   } else {
-    getWrongAnswer();
+    wrongAnswer();
   }
 });
 
@@ -115,6 +115,26 @@ async function generateAuthorButtons() {
   answer2.innerHTML = getRandomAuthor(randomAuthors);
   answer3.innerHTML = getRandomAuthor(randomAuthors);
   answer4.innerHTML = getRandomAuthor(randomAuthors);
+}
+
+function getRelatedToAuthor() {
+  let url = `https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json&generator=search&gsrnamespace=0&gsrlimit=5&gsrsearch='${answer}'`;
+  xhr.open("GET", url, true);
+
+  xhr.onload = function() {
+    let data = JSON.parse(this.response);
+
+    for (let i in data.query.pages) {
+      let link = data.query.pages[i].title;
+      let relatedButton = document.createElement("button");
+      relatedButton.innerHTML = `Another result from people who have searched ${author} is: ${link}`;
+      authorQuotes.append(relatedButton);
+
+      relatedButton.onclick = () => {
+        location.href = `https://en.wikipedia.org/wiki/${link}`;
+      };
+    }
+  };
 }
 
 function getRandomAuthor(randomAuthors) {
@@ -176,7 +196,6 @@ async function serveQuotes() {
 
 function askForQuotes() {
   authorQuotes.innerHTML = `Would you like to see more quotes from ${answer}?`;
-  const spacing = document.createElement("p");
   const question = document.createElement("button");
   question.innerHTML = "Yes";
   authorQuotes.append(question);
@@ -202,49 +221,23 @@ function cleanUp() {
   authorQuotes.innerHTML = "";
 }
 
-function getWrongAnswer() {
-  wrongAnswer();
-}
-
 function emptyQuoteBox() {
   losingQuote.innerHTML = "";
 }
 
 async function startUP() {
+  quote.innerHTML = "Your new quote is loading! Give us a second to fetch it!";
+  await getQuoteAuthor();
+  await generateAuthorButtons();
+  console.log("answer", answer);
+}
+
+function reset() {
   answer1.innerHTML = "Loading...";
   answer2.innerHTML = "Loading...";
   answer3.innerHTML = "Loading...";
   answer4.innerHTML = "Loading...";
-  quote.innerHTML = "Your new quote is loading! Give us a second to fetch it!";
-
-  await getQuoteAuthor();
-
-  await generateAuthorButtons();
-  await console.log("answer", answer);
-}
-
-function reset() {
   startUP();
 }
 
 startUP();
-
-function getRelatedToAuthor() {
-  let url = `https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json&generator=search&gsrnamespace=0&gsrlimit=5&gsrsearch='${answer}'`;
-  xhr.open("GET", url, true);
-
-  xhr.onload = function() {
-    let data = JSON.parse(this.response);
-
-    for (var i in data.query.pages) {
-      let link = data.query.pages[i].title;
-      let relatedButton = document.createElement("button");
-      relatedButton.innerHTML = `Another result from people who have searched ${author} is: ${link}`;
-      authorQuotes.append(relatedButton);
-
-      relatedButton.onclick = () => {
-        location.href = `https://en.wikipedia.org/wiki/${link}`;
-      };
-    }
-  };
-}
