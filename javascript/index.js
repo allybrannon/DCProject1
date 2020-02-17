@@ -1,6 +1,6 @@
 let currentScore = 0;
 let answer = "";
-var xhr = new XMLHttpRequest();
+let xhr = new XMLHttpRequest();
 
 // test
 const spinner = document.querySelector(".loader");
@@ -18,8 +18,8 @@ M.AutoInit();
 
 //carousel
 document.addEventListener("DOMContentLoaded", function() {
-  var elems = document.querySelectorAll(".carousel");
-  var instances = M.Carousel.init(elems, options);
+  let elems = document.querySelectorAll(".carousel");
+  let instances = M.Carousel.init(elems, options);
 });
 
 // button functions
@@ -167,19 +167,16 @@ async function serveQuotes() {
         }
       }
     }
-
-    //this needs to append onto the class authorQuotes, which appears at the bottom of the page.
   });
 }
 
 function askForQuotes() {
-  authorQuotes.innerHTML = `Woud you like to see more quotes from ${answer}?`;
+  authorQuotes.innerHTML = `Would you like to see more quotes from ${answer}?`;
   const spacing = document.createElement("p");
   const question = document.createElement("button");
   question.innerHTML = "Yes";
   authorQuotes.append(spacing);
   authorQuotes.append(question);
-  presentAuthorLink();
 
   question.addEventListener("click", e => {
     e.preventDefault();
@@ -225,41 +222,22 @@ function reset() {
 
 startUP();
 
-//private testing.
-
 function getRelatedToAuthor() {
   let url = `https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json&generator=search&gsrnamespace=0&gsrlimit=5&gsrsearch='${answer}'`;
   xhr.open("GET", url, true);
-  // Provide 3 arguments (GET/POST, The URL, Async True/False)
 
-  // Once request has loaded...
   xhr.onload = function() {
-    // Parse the request into JSON
-    var data = JSON.parse(this.response);
-
-    // Loop through the data object
-    // Pulling out the titles of each page
+    let data = JSON.parse(this.response);
 
     for (var i in data.query.pages) {
       let link = data.query.pages[i].title;
       let relatedButton = document.createElement("button");
-      relatedButton.innerHTML = `Related to the author is: ${link}`;
+      relatedButton.innerHTML = `Another result from people who have searched ${author} is: ${link}`;
       authorQuotes.append(relatedButton);
+
       relatedButton.onclick = () => {
         location.href = `https://en.wikipedia.org/wiki/${link}`;
       };
     }
   };
 }
-
-function presentAuthorLink() {
-  let authorButton = document.createElement("button");
-  authorButton.innerHTML = `Would you like to learn more about ${author}?`;
-  authorQuotes.append(authorButton);
-  //click options.
-  authorButton.onclick = () => {
-    location.href = `https://en.wikipedia.org/wiki/${answer}`;
-  };
-}
-
-// Send request to the server asynchronously
