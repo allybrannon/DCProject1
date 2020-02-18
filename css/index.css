@@ -113,6 +113,11 @@ h4 {
   font-size: 20px;
 }
 
+.card {
+  max-width: 400px;
+  max-height: 200px;
+}
+
 .wrongFact {
   display: flex;
   font-size: 18px;
@@ -163,7 +168,7 @@ h4 {
   color: #eeeeee;
 }
 .moon {
-  padding-top: 8px;
+  padding-top: 9px;
   filter: invert();
 }
 .moonBtn {
