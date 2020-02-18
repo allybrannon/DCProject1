@@ -19,7 +19,7 @@ M.AutoInit();
 //carousel
 document.addEventListener("DOMContentLoaded", function() {
   let elems = document.querySelectorAll(".carousel");
-  let instances = M.Carousel.init(elems, options);
+  let instances = M.Carousel.init(elems);
 });
 
 // button functions
@@ -103,8 +103,6 @@ async function generateAuthorButtons() {
       return response.quoteAuthor;
     });
     if (check != false) {
-      console.log(check);
-      console.log(check.length);
       randomAuthors.push(check);
     }
   }
@@ -127,7 +125,7 @@ function getRelatedToAuthor() {
     for (let i in data.query.pages) {
       let link = data.query.pages[i].title;
       let relatedButton = document.createElement("button");
-      relatedButton.innerHTML = `Another result from people who have searched ${author} is: ${link}`;
+      relatedButton.innerHTML = `Another result from people who have searched ${answer} is: ${link}`;
       authorQuotes.append(relatedButton);
 
       relatedButton.onclick = () => {
@@ -154,15 +152,13 @@ async function getNumbersQuote() {
 
 async function serveQuotes() {
   const authorQuotesApi = `https://quote-garden.herokuapp.com/quotes/author/${answer}`;
-  get(authorQuotesApi).then(response => {
-    console.log(response);
+  await get(authorQuotesApi).then(response => {
     quotes = response.results;
 
     if (quotes.length < 10) {
       for (let i = 0; i <= quotes.length; i++) {
         if (i >= 1) {
           if (quotes[i].quoteText === quotes[i - 1].quoteText) {
-            console.log("This has repeated in less than 10.");
           } else {
             authorQuotes.append(quotes[i].quoteText);
             let newParagraph = document.createElement("p");
@@ -178,7 +174,6 @@ async function serveQuotes() {
       for (let i = 0; i <= 10; i++) {
         if (i >= 1) {
           if (quotes[i].quoteText === quotes[i - 1].quoteText) {
-            console.log("This has repeated in arrays greater than 10.");
           } else {
             authorQuotes.append(quotes[i].quoteText);
             let newParagraph = document.createElement("p");
@@ -194,7 +189,7 @@ async function serveQuotes() {
   });
 }
 
-function askForQuotes() {
+async function askForQuotes() {
   authorQuotes.innerHTML = `Would you like to see more quotes from ${answer}?`;
   const question = document.createElement("button");
   question.innerHTML = "Yes";
@@ -212,8 +207,8 @@ async function wrongAnswer() {
   currentScore = 0;
   score.innerHTML = currentScore;
   reset();
+  await getRelatedToAuthor();
   askForQuotes();
-  getRelatedToAuthor();
   await xhr.send();
 }
 
