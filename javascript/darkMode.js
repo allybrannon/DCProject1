@@ -3,13 +3,11 @@ const moonBtn = document.querySelector('.moonBtn');
 function darkMode() {
   const bodyElement = document.body;
   const cardElement = document.querySelector('.card');
+  const btnImage = document.querySelector('.darkIcon');
+
   cardElement.classList.toggle('darkMode');
   bodyElement.classList.toggle('darkMode');
-}
 
-function buttonChange() {
-  const bodyElement = document.body;
-  const btnImage = document.querySelector('.darkIcon');
   if (bodyElement.className == 'darkMode') {
     btnImage.src = '/images/icons8-summer-50.png';
   } else if (bodyElement.className !== 'darkMode') {
@@ -20,5 +18,4 @@ function buttonChange() {
 moonBtn.addEventListener('click', function(e) {
   e.preventDefault();
   darkMode();
-  buttonChange();
 });
