@@ -3,7 +3,6 @@ let answer = "";
 let xhr = new XMLHttpRequest();
 
 // test
-const spinner = document.querySelector(".loader");
 const quote = document.querySelector(".quoteGenP");
 const answer1 = document.querySelector("#author1");
 const answer2 = document.querySelector("#author2");
@@ -15,12 +14,6 @@ const authorQuotes = document.querySelector(".authorQuotes");
 
 //materialize init
 M.AutoInit();
-
-//carousel
-document.addEventListener("DOMContentLoaded", function() {
-  let elems = document.querySelectorAll(".carousel");
-  let instances = M.Carousel.init(elems);
-});
 
 // button functions
 answer1.addEventListener("click", e => {
@@ -128,7 +121,8 @@ function getRelatedToAuthor() {
       relatedButton.innerHTML = `Another result from people who have searched ${answer} is: ${link}`;
       authorQuotes.append(relatedButton);
 
-      relatedButton.onclick = () => {
+      relatedButton.onclick = e => {
+        e.preventDefault();
         location.href = `https://en.wikipedia.org/wiki/${link}`;
       };
     }
@@ -208,7 +202,7 @@ async function wrongAnswer() {
   score.innerHTML = currentScore;
   reset();
   await getRelatedToAuthor();
-  askForQuotes();
+  await askForQuotes();
   await xhr.send();
 }
 
