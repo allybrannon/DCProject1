@@ -1,4 +1,4 @@
-# DCProject1
+# Quotable
 
 Group project using API's: Contributors: Joshua, Ally, Patrick
 
